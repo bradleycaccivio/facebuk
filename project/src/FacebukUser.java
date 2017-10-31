@@ -146,22 +146,20 @@ public class FacebukUser extends FacebookObject{
 					collection.add(clique);
 				}
 		}
-		return collection;	
+		return getLargest(collection);	
 	}
 	
 	private ArrayList<FacebukUser> getLargest(ArrayList<ArrayList<FacebukUser>> list)
 	{
-		int temp = 0;
-		int index =0;
+		ArrayList<FacebukUser> temp;
 		for(int i=0; i< list.size();i++)
 		{
-			if(list.get(i).size() > temp)
+			if(list.get(i).size() > temp.size())
 				{
-					temp = list.get(i).size();
-					index = i;
+					temp = list.get(i);
 				}
 		}
-		return list.get(index);
+		return temp;
 		
 	}
 	public static boolean isClique (ArrayList<FacebukUser> set)
